@@ -20,6 +20,7 @@ import ListItem from "./nodes/ListItem";
 import Notice from "./nodes/Notice";
 import OrderedList from "./nodes/OrderedList";
 import Paragraph from "./nodes/Paragraph";
+import QueryBlock from "./nodes/QueryBlock";
 import Table from "./nodes/Table";
 import TableCell from "./nodes/TableCell";
 import TableHeadCell from "./nodes/TableHeadCell";
@@ -44,6 +45,7 @@ const extensions = new ExtensionManager([
   new BulletList(),
   new CodeBlock(),
   new CodeFence(),
+  new QueryBlock(),
   new CheckboxList(),
   new CheckboxItem(),
   new Embed(),
