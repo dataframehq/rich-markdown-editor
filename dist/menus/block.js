@@ -69,10 +69,10 @@ function blockMenuItems(dictionary) {
         },
         {
             name: "query_block",
-            title: dictionary.codeBlock,
+            title: dictionary.queryBlock,
             icon: outline_icons_1.CodeIcon,
-            shortcut: "^ ⇧ \\",
-            keywords: "script",
+            shortcut: "^ ⇧ ]",
+            keywords: "query sql script runs results",
         },
         {
             name: "code_block",
