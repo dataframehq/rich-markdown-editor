@@ -151,7 +151,6 @@ class BlockMenu extends React.Component<Props, State> {
   };
 
   insertItem = (item) => {
-    console.log(item, "item");
     switch (item.name) {
       case "image":
         return this.triggerImagePick();
@@ -297,7 +296,7 @@ class BlockMenu extends React.Component<Props, State> {
     this.clearSearch();
 
     const command = this.props.commands[item.name];
-    console.log(command, "command", item.attr, "item");
+
     if (command) {
       command(item.attrs);
     } else {
