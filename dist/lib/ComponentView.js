@@ -54,7 +54,6 @@ class ComponentView {
         react_dom_1.default.render(React.createElement(styled_components_1.ThemeProvider, { theme: theme }, children), this.dom);
     }
     update(node) {
-        debugger;
         if (node.type !== this.node.type) {
             return false;
         }

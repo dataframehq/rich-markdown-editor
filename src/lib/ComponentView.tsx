@@ -64,7 +64,6 @@ export default class ComponentView {
   }
 
   update(node) {
-    debugger;
     if (node.type !== this.node.type) {
       return false;
     }
