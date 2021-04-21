@@ -35,6 +35,7 @@ import Link from "./marks/Link";
 import Strikethrough from "./marks/Strikethrough";
 import TemplatePlaceholder from "./marks/Placeholder";
 import Underline from "./marks/Underline";
+import QueryFence from "./nodes/QueryFence";
 
 const extensions = new ExtensionManager([
   new Doc(),
@@ -46,6 +47,7 @@ const extensions = new ExtensionManager([
   new CodeBlock(),
   new CodeFence(),
   new QueryBlock(),
+  new QueryFence(),
   new CheckboxList(),
   new CheckboxItem(),
   new Embed(),

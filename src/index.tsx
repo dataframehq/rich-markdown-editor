@@ -70,6 +70,7 @@ import Placeholder from "./plugins/Placeholder";
 import SmartText from "./plugins/SmartText";
 import TrailingNode from "./plugins/TrailingNode";
 import MarkdownPaste from "./plugins/MarkdownPaste";
+import QueryFence from "./nodes/QueryFence";
 
 export { schema, parser, serializer, renderToHtml } from "./server";
 
@@ -265,6 +266,10 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
         new Paragraph(),
         new Blockquote(),
         new QueryBlock({
+          dictionary,
+          onShowToast: this.props.onShowToast,
+        }),
+        new QueryFence({
           dictionary,
           onShowToast: this.props.onShowToast,
         }),
