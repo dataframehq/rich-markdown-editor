@@ -83,6 +83,7 @@ const Placeholder_2 = __importDefault(require("./plugins/Placeholder"));
 const SmartText_1 = __importDefault(require("./plugins/SmartText"));
 const TrailingNode_1 = __importDefault(require("./plugins/TrailingNode"));
 const MarkdownPaste_1 = __importDefault(require("./plugins/MarkdownPaste"));
+const QueryFence_1 = __importDefault(require("./nodes/QueryFence"));
 var server_1 = require("./server");
 Object.defineProperty(exports, "schema", { enumerable: true, get: function () { return server_1.schema; } });
 Object.defineProperty(exports, "parser", { enumerable: true, get: function () { return server_1.parser; } });
@@ -279,6 +280,10 @@ class RichMarkdownEditor extends React.PureComponent {
             new Paragraph_1.default(),
             new Blockquote_1.default(),
             new QueryBlock_1.default({
+                dictionary,
+                onShowToast: this.props.onShowToast,
+            }),
+            new QueryFence_1.default({
                 dictionary,
                 onShowToast: this.props.onShowToast,
             }),

@@ -37,6 +37,7 @@ const Link_1 = __importDefault(require("./marks/Link"));
 const Strikethrough_1 = __importDefault(require("./marks/Strikethrough"));
 const Placeholder_1 = __importDefault(require("./marks/Placeholder"));
 const Underline_1 = __importDefault(require("./marks/Underline"));
+const QueryFence_1 = __importDefault(require("./nodes/QueryFence"));
 const extensions = new ExtensionManager_1.default([
     new Doc_1.default(),
     new Text_1.default(),
@@ -47,6 +48,7 @@ const extensions = new ExtensionManager_1.default([
     new CodeBlock_1.default(),
     new CodeFence_1.default(),
     new QueryBlock_1.default(),
+    new QueryFence_1.default(),
     new CheckboxList_1.default(),
     new CheckboxItem_1.default(),
     new Embed_1.default(),
