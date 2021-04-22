@@ -45,7 +45,6 @@ import ListItem from "./nodes/ListItem";
 import Notice from "./nodes/Notice";
 import OrderedList from "./nodes/OrderedList";
 import Paragraph from "./nodes/Paragraph";
-import QueryBlock from "./nodes/QueryBlock";
 import Table from "./nodes/Table";
 import TableCell from "./nodes/TableCell";
 import TableHeadCell from "./nodes/TableHeadCell";
@@ -70,7 +69,6 @@ import Placeholder from "./plugins/Placeholder";
 import SmartText from "./plugins/SmartText";
 import TrailingNode from "./plugins/TrailingNode";
 import MarkdownPaste from "./plugins/MarkdownPaste";
-import QueryFence from "./nodes/QueryFence";
 
 export { schema, parser, serializer, renderToHtml } from "./server";
 
@@ -265,14 +263,6 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
         new HardBreak(),
         new Paragraph(),
         new Blockquote(),
-        new QueryBlock({
-          dictionary,
-          onShowToast: this.props.onShowToast,
-        }),
-        new QueryFence({
-          dictionary,
-          onShowToast: this.props.onShowToast,
-        }),
         new CodeBlock({
           dictionary,
           onShowToast: this.props.onShowToast,
