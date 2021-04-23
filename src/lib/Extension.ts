@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// import React from "react";
 import { InputRule } from "prosemirror-inputrules";
 import { Plugin } from "prosemirror-state";
-import Editor from "../";
+import Editor from "..";
 
 type Command = (attrs) => (state, dispatch) => any;
 
 export default class Extension {
   options: Record<string, any>;
   editor: Editor;
-  component?: React.Component | React.FC<any>;
+  component?: any; //React.Component | React.FC<any>;
 
   constructor(options: Record<string, any> = {}) {
     this.options = {
