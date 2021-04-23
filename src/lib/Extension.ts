@@ -8,6 +8,7 @@ type Command = (attrs) => (state, dispatch) => any;
 export default class Extension {
   options: Record<string, any>;
   editor: Editor;
+  component?: React.Component | React.FC<any>;
 
   constructor(options: Record<string, any> = {}) {
     this.options = {
