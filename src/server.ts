@@ -20,7 +20,6 @@ import ListItem from "./nodes/ListItem";
 import Notice from "./nodes/Notice";
 import OrderedList from "./nodes/OrderedList";
 import Paragraph from "./nodes/Paragraph";
-import QueryBlock from "./nodes/QueryBlock";
 import Table from "./nodes/Table";
 import TableCell from "./nodes/TableCell";
 import TableHeadCell from "./nodes/TableHeadCell";
@@ -35,7 +34,6 @@ import Link from "./marks/Link";
 import Strikethrough from "./marks/Strikethrough";
 import TemplatePlaceholder from "./marks/Placeholder";
 import Underline from "./marks/Underline";
-import QueryFence from "./nodes/QueryFence";
 
 const extensions = new ExtensionManager([
   new Doc(),
@@ -46,8 +44,6 @@ const extensions = new ExtensionManager([
   new BulletList(),
   new CodeBlock(),
   new CodeFence(),
-  new QueryBlock(),
-  new QueryFence(),
   new CheckboxList(),
   new CheckboxItem(),
   new Embed(),

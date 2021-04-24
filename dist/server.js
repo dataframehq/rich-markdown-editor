@@ -24,7 +24,6 @@ const ListItem_1 = __importDefault(require("./nodes/ListItem"));
 const Notice_1 = __importDefault(require("./nodes/Notice"));
 const OrderedList_1 = __importDefault(require("./nodes/OrderedList"));
 const Paragraph_1 = __importDefault(require("./nodes/Paragraph"));
-const QueryBlock_1 = __importDefault(require("./nodes/QueryBlock"));
 const Table_1 = __importDefault(require("./nodes/Table"));
 const TableCell_1 = __importDefault(require("./nodes/TableCell"));
 const TableHeadCell_1 = __importDefault(require("./nodes/TableHeadCell"));
@@ -37,7 +36,6 @@ const Link_1 = __importDefault(require("./marks/Link"));
 const Strikethrough_1 = __importDefault(require("./marks/Strikethrough"));
 const Placeholder_1 = __importDefault(require("./marks/Placeholder"));
 const Underline_1 = __importDefault(require("./marks/Underline"));
-const QueryFence_1 = __importDefault(require("./nodes/QueryFence"));
 const extensions = new ExtensionManager_1.default([
     new Doc_1.default(),
     new Text_1.default(),
@@ -47,8 +45,6 @@ const extensions = new ExtensionManager_1.default([
     new BulletList_1.default(),
     new CodeBlock_1.default(),
     new CodeFence_1.default(),
-    new QueryBlock_1.default(),
-    new QueryFence_1.default(),
     new CheckboxList_1.default(),
     new CheckboxItem_1.default(),
     new Embed_1.default(),

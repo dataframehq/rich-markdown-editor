@@ -62,7 +62,6 @@ const ListItem_1 = __importDefault(require("./nodes/ListItem"));
 const Notice_1 = __importDefault(require("./nodes/Notice"));
 const OrderedList_1 = __importDefault(require("./nodes/OrderedList"));
 const Paragraph_1 = __importDefault(require("./nodes/Paragraph"));
-const QueryBlock_1 = __importDefault(require("./nodes/QueryBlock"));
 const Table_1 = __importDefault(require("./nodes/Table"));
 const TableCell_1 = __importDefault(require("./nodes/TableCell"));
 const TableHeadCell_1 = __importDefault(require("./nodes/TableHeadCell"));
@@ -83,7 +82,6 @@ const Placeholder_2 = __importDefault(require("./plugins/Placeholder"));
 const SmartText_1 = __importDefault(require("./plugins/SmartText"));
 const TrailingNode_1 = __importDefault(require("./plugins/TrailingNode"));
 const MarkdownPaste_1 = __importDefault(require("./plugins/MarkdownPaste"));
-const QueryFence_1 = __importDefault(require("./nodes/QueryFence"));
 var server_1 = require("./server");
 Object.defineProperty(exports, "schema", { enumerable: true, get: function () { return server_1.schema; } });
 Object.defineProperty(exports, "parser", { enumerable: true, get: function () { return server_1.parser; } });
@@ -279,14 +277,6 @@ class RichMarkdownEditor extends React.PureComponent {
             new HardBreak_1.default(),
             new Paragraph_1.default(),
             new Blockquote_1.default(),
-            new QueryBlock_1.default({
-                dictionary,
-                onShowToast: this.props.onShowToast,
-            }),
-            new QueryFence_1.default({
-                dictionary,
-                onShowToast: this.props.onShowToast,
-            }),
             new CodeBlock_1.default({
                 dictionary,
                 onShowToast: this.props.onShowToast,
