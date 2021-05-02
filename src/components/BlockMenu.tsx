@@ -296,6 +296,12 @@ class BlockMenu extends React.Component<Props, State> {
     this.clearSearch();
 
     const command = this.props.commands[item.name];
+    console.log(
+      "INSERTING BLOCK: ",
+      this.props.commands,
+      item,
+      this.props.commands[`create${capitalize(item.name)}`]
+    );
 
     if (command) {
       command(item.attrs);
