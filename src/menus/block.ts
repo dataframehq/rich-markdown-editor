@@ -88,7 +88,7 @@ export default function blockMenuItems(
       shortcut: `${mod} ]`,
     },
     {
-      name: "query_block",
+      name: "container_query_block",
       title: dictionary.queryBlock,
       icon: CodeIcon,
       shortcut: "^ ⇧ ]",
