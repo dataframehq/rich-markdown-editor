@@ -9,6 +9,7 @@ function queryblock(md) {
         marker: ";",
         validate: () => true,
         render: function (tokens, idx) {
+            console.log("QUERYBLOCK TOKENS: ", tokens);
             if (tokens[idx].nesting === 1) {
                 return `<div class="queryblock">\n`;
             }
