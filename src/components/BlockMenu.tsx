@@ -285,7 +285,7 @@ class BlockMenu extends React.Component<Props, State> {
       dispatch(
         state.tr.insertText(
           "",
-          parent.pos,
+          parent.pos + 1,
           parent.pos + parent.node.textContent.length + 1
         )
       );
