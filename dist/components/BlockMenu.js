@@ -234,7 +234,7 @@ class BlockMenu extends React.Component {
         const { state, dispatch } = this.props.view;
         const parent = prosemirror_utils_1.findParentNode((node) => !!node)(state.selection);
         if (parent) {
-            dispatch(state.tr.insertText("\n", parent.pos, parent.pos + parent.node.textContent.length + 1));
+            dispatch(state.tr.insertText("\\", parent.pos, parent.pos + parent.node.textContent.length + 1));
         }
     }
     insertBlock(item) {
