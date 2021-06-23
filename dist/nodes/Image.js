@@ -33,7 +33,7 @@ const uploadPlaceholder_1 = __importDefault(require("../lib/uploadPlaceholder"))
 const insertFiles_1 = __importDefault(require("../commands/insertFiles"));
 const Node_1 = __importDefault(require("./Node"));
 const IMAGE_INPUT_REGEX = /!\[(?<alt>.*?)]\((?<filename>.*?)(?=\“|\))\“?(?<layoutclass>[^\”]+)?\”?\)/;
-const uploadPlugin = options => new prosemirror_state_1.Plugin({
+const uploadPlugin = (options) => new prosemirror_state_1.Plugin({
     props: {
         handleDOMEvents: {
             paste(view, event) {
@@ -45,8 +45,8 @@ const uploadPlugin = options => new prosemirror_state_1.Plugin({
                     return false;
                 const files = Array.prototype.slice
                     .call(event.clipboardData.items)
-                    .map(dt => dt.getAsFile())
-                    .filter(file => file);
+                    .map((dt) => dt.getAsFile())
+                    .filter((file) => file);
                 if (files.length === 0)
                     return false;
                 const { tr } = view.state;
@@ -62,7 +62,7 @@ const uploadPlugin = options => new prosemirror_state_1.Plugin({
                     !options.uploadImage) {
                     return false;
                 }
-                const files = getDataTransferFiles_1.default(event).filter(file => /image/i.test(file.type));
+                const files = getDataTransferFiles_1.default(event).filter((file) => /image/i.test(file.type));
                 if (files.length === 0) {
                     return false;
                 }
@@ -80,7 +80,7 @@ const uploadPlugin = options => new prosemirror_state_1.Plugin({
     },
 });
 const IMAGE_CLASSES = ["right-50", "left-50"];
-const getLayoutAndTitle = tokenTitle => {
+const getLayoutAndTitle = (tokenTitle) => {
     if (!tokenTitle)
         return {};
     if (IMAGE_CLASSES.includes(tokenTitle)) {
@@ -97,7 +97,7 @@ const getLayoutAndTitle = tokenTitle => {
 class Image extends Node_1.default {
     constructor() {
         super(...arguments);
-        this.handleKeyDown = ({ node, getPos }) => event => {
+        this.handleKeyDown = ({ node, getPos }) => (event) => {
             if (event.key === "Enter") {
                 event.preventDefault();
                 const { view } = this.editor;
@@ -115,7 +115,7 @@ class Image extends Node_1.default {
                 return;
             }
         };
-        this.handleBlur = ({ node, getPos }) => event => {
+        this.handleBlur = ({ node, getPos }) => (event) => {
             const alt = event.target.innerText;
             const { src, title, layoutClass } = node.attrs;
             if (alt === node.attrs.alt)
@@ -131,14 +131,14 @@ class Image extends Node_1.default {
             });
             view.dispatch(transaction);
         };
-        this.handleSelect = ({ getPos }) => event => {
+        this.handleSelect = ({ getPos }) => (event) => {
             event.preventDefault();
             const { view } = this.editor;
             const $pos = view.state.doc.resolve(getPos());
             const transaction = view.state.tr.setSelection(new prosemirror_state_1.NodeSelection($pos));
             view.dispatch(transaction);
         };
-        this.component = props => {
+        this.component = (props) => {
             const { theme, isSelected } = props;
             const { alt, src, title, layoutClass } = props.node.attrs;
             const className = layoutClass ? `image image-${layoutClass}` : "image";
@@ -198,7 +198,7 @@ class Image extends Node_1.default {
                     },
                 },
             ],
-            toDOM: node => {
+            toDOM: (node) => {
                 const className = node.attrs.layoutClass
                     ? `image image-${node.attrs.layoutClass}`
                     : "image";
@@ -230,7 +230,7 @@ class Image extends Node_1.default {
     parseMarkdown() {
         return {
             node: "image",
-            getAttrs: token => {
+            getAttrs: (token) => {
                 return Object.assign({ src: token.attrGet("src"), alt: (token.children[0] && token.children[0].content) || null }, getLayoutAndTitle(token.attrGet("title")));
             },
         };
@@ -259,7 +259,7 @@ class Image extends Node_1.default {
                 dispatch(state.tr.setNodeMarkup(selection.$from.pos, undefined, attrs));
                 return true;
             },
-            createImage: attrs => (state, dispatch) => {
+            createImage: (attrs) => (state, dispatch) => {
                 const { selection } = state;
                 const position = selection.$cursor
                     ? selection.$cursor.pos
@@ -298,7 +298,7 @@ const Caption = styled_components_1.default.p `
   display: block;
   font-size: 13px;
   font-style: italic;
-  color: ${props => props.theme.textSecondary};
+  color: ${(props) => props.theme.textSecondary};
   padding: 2px 0;
   line-height: 16px;
   text-align: center;
@@ -310,7 +310,7 @@ const Caption = styled_components_1.default.p `
   cursor: text;
 
   &:empty:before {
-    color: ${props => props.theme.placeholder};
+    color: ${(props) => props.theme.placeholder};
     content: "Write a caption";
     pointer-events: none;
   }

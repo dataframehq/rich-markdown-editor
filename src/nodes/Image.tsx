@@ -19,7 +19,7 @@ import Node from "./Node";
  */
 const IMAGE_INPUT_REGEX = /!\[(?<alt>.*?)]\((?<filename>.*?)(?=\“|\))\“?(?<layoutclass>[^\”]+)?\”?\)/;
 
-const uploadPlugin = options =>
+const uploadPlugin = (options) =>
   new Plugin({
     props: {
       handleDOMEvents: {
@@ -36,8 +36,8 @@ const uploadPlugin = options =>
           // check if we actually pasted any files
           const files = Array.prototype.slice
             .call(event.clipboardData.items)
-            .map(dt => dt.getAsFile())
-            .filter(file => file);
+            .map((dt) => dt.getAsFile())
+            .filter((file) => file);
 
           if (files.length === 0) return false;
 
@@ -59,7 +59,7 @@ const uploadPlugin = options =>
           }
 
           // filter to only include image files
-          const files = getDataTransferFiles(event).filter(file =>
+          const files = getDataTransferFiles(event).filter((file) =>
             /image/i.test(file.type)
           );
           if (files.length === 0) {
@@ -84,7 +84,7 @@ const uploadPlugin = options =>
   });
 
 const IMAGE_CLASSES = ["right-50", "left-50"];
-const getLayoutAndTitle = tokenTitle => {
+const getLayoutAndTitle = (tokenTitle) => {
   if (!tokenTitle) return {};
   if (IMAGE_CLASSES.includes(tokenTitle)) {
     return {
@@ -142,7 +142,7 @@ export default class Image extends Node {
           },
         },
       ],
-      toDOM: node => {
+      toDOM: (node) => {
         const className = node.attrs.layoutClass
           ? `image image-${node.attrs.layoutClass}`
           : "image";
@@ -158,7 +158,7 @@ export default class Image extends Node {
     };
   }
 
-  handleKeyDown = ({ node, getPos }) => event => {
+  handleKeyDown = ({ node, getPos }) => (event) => {
     // Pressing Enter in the caption field should move the cursor/selection
     // below the image
     if (event.key === "Enter") {
@@ -183,7 +183,7 @@ export default class Image extends Node {
     }
   };
 
-  handleBlur = ({ node, getPos }) => event => {
+  handleBlur = ({ node, getPos }) => (event) => {
     const alt = event.target.innerText;
     const { src, title, layoutClass } = node.attrs;
 
@@ -203,7 +203,7 @@ export default class Image extends Node {
     view.dispatch(transaction);
   };
 
-  handleSelect = ({ getPos }) => event => {
+  handleSelect = ({ getPos }) => (event) => {
     event.preventDefault();
 
     const { view } = this.editor;
@@ -212,7 +212,7 @@ export default class Image extends Node {
     view.dispatch(transaction);
   };
 
-  component = props => {
+  component = (props) => {
     const { theme, isSelected } = props;
     const { alt, src, title, layoutClass } = props.node.attrs;
     const className = layoutClass ? `image image-${layoutClass}` : "image";
@@ -270,7 +270,7 @@ export default class Image extends Node {
   parseMarkdown() {
     return {
       node: "image",
-      getAttrs: token => {
+      getAttrs: (token) => {
         return {
           src: token.attrGet("src"),
           alt: (token.children[0] && token.children[0].content) || null,
@@ -312,7 +312,7 @@ export default class Image extends Node {
         dispatch(state.tr.setNodeMarkup(selection.$from.pos, undefined, attrs));
         return true;
       },
-      createImage: attrs => (state, dispatch) => {
+      createImage: (attrs) => (state, dispatch) => {
         const { selection } = state;
         const position = selection.$cursor
           ? selection.$cursor.pos
@@ -362,7 +362,7 @@ const Caption = styled.p`
   display: block;
   font-size: 13px;
   font-style: italic;
-  color: ${props => props.theme.textSecondary};
+  color: ${(props) => props.theme.textSecondary};
   padding: 2px 0;
   line-height: 16px;
   text-align: center;
@@ -374,7 +374,7 @@ const Caption = styled.p`
   cursor: text;
 
   &:empty:before {
-    color: ${props => props.theme.placeholder};
+    color: ${(props) => props.theme.placeholder};
     content: "Write a caption";
     pointer-events: none;
   }

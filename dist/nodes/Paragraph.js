@@ -14,7 +14,10 @@ class Paragraph extends Node_1.default {
             content: "inline*",
             group: "block",
             parseDOM: [{ tag: "p" }],
-            toDOM: () => ["p", 0],
+            toDOM: (node) => {
+                console.log(node, "ParagraphNode", node.attrs.layoutClass, "node.attrs.layoutClass");
+                return ["p", 0];
+            },
         };
     }
     keys({ type }) {

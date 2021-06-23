@@ -11,7 +11,18 @@ export default class Paragraph extends Node {
       content: "inline*",
       group: "block",
       parseDOM: [{ tag: "p" }],
-      toDOM: () => ["p", 0],
+      toDOM: (node) => {
+        console.log(
+          node,
+          "ParagraphNode",
+          node.attrs.layoutClass,
+          "node.attrs.layoutClass"
+        );
+        // const className = node.attrs.layoutClass
+        //   ? `image image-${node.attrs.layoutClass}`
+        //   : "image";
+        return ["p", 0];
+      },
     };
   }
 
