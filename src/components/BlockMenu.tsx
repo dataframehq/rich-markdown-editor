@@ -253,13 +253,14 @@ class BlockMenu extends React.Component<Props, State> {
     const parent = findParentNode((node) => !!node)(state.selection);
 
     if (parent) {
-      dispatch(
-        state.tr.insertText(
-          "",
-          parent.pos,
-          parent.pos + parent.node.textContent.length + 1
-        )
-      );
+      console.log("Image Insert");
+      // dispatch(
+      //   state.tr.insertText(
+      //     "",
+      //     parent.pos,
+      //     parent.pos + parent.node.textContent.length + 1
+      //   )
+      // );
 
       insertFiles(view, event, parent.pos, files, {
         uploadImage,
