@@ -506,9 +506,13 @@ const StyledEditor = styled_components_1.default("div") `
     -webkit-font-variant-ligatures: none;
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
+
+    p br {
+      display: none;
+    }
   }
 
-  pre {
+  .ProseMirror pre {
     white-space: pre-wrap;
   }
 
