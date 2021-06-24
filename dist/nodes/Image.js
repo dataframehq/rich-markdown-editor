@@ -161,7 +161,6 @@ class Image extends Node_1.default {
     }
     get schema() {
         return {
-            inline: true,
             attrs: {
                 src: {},
                 alt: {
@@ -175,7 +174,6 @@ class Image extends Node_1.default {
                 },
             },
             content: "block+",
-            marks: "",
             group: "block",
             selectable: true,
             draggable: true,

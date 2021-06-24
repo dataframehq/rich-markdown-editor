@@ -5,7 +5,6 @@ import Node from "./Node";
 export default class Image extends Node {
     get name(): string;
     get schema(): {
-        inline: boolean;
         attrs: {
             src: {};
             alt: {
@@ -19,7 +18,6 @@ export default class Image extends Node {
             };
         };
         content: string;
-        marks: string;
         group: string;
         selectable: boolean;
         draggable: boolean;
