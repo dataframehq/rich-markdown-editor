@@ -350,6 +350,8 @@ export default class Image extends Node {
           );
         }
 
+        console.log(okay, state, match, start, end);
+
         return tr;
       }),
     ];

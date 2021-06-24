@@ -279,6 +279,7 @@ class Image extends Node_1.default {
                     tr.replaceWith(start - 1, end, type.create(Object.assign({ src,
                         alt }, getLayoutAndTitle(matchedTitle))));
                 }
+                console.log(okay, state, match, start, end);
                 return tr;
             }),
         ];
