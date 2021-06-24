@@ -22,7 +22,8 @@ export default class Paragraph extends Node {
         const isImageParagraph = node.content.lastChild?.type.name === "image";
         const className = isImageParagraph ? `image-paragraph` : "";
         console.log(isImageParagraph, className);
-        return ["p", { class: className }];
+        // return ["p", { class: className }];
+        return ["p", 0];
       },
     };
   }

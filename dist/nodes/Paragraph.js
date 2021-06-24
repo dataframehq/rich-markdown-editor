@@ -20,7 +20,7 @@ class Paragraph extends Node_1.default {
                 const isImageParagraph = ((_a = node.content.lastChild) === null || _a === void 0 ? void 0 : _a.type.name) === "image";
                 const className = isImageParagraph ? `image-paragraph` : "";
                 console.log(isImageParagraph, className);
-                return ["p", { class: className }];
+                return ["p", 0];
             },
         };
     }
