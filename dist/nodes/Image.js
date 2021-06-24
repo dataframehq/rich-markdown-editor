@@ -222,6 +222,7 @@ class Image extends Node_1.default {
             markdown += ' "' + state.esc(node.attrs.title) + '"';
         }
         markdown += ")";
+        console.log(markdown, "toMarkdown");
         state.write(markdown);
     }
     parseMarkdown() {

@@ -273,6 +273,8 @@ export default class Image extends Node {
       markdown += ' "' + state.esc(node.attrs.title) + '"';
     }
     markdown += ")";
+
+    console.log(markdown, "toMarkdown");
     state.write(markdown);
   }
 
