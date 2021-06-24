@@ -175,6 +175,7 @@ class Image extends Node_1.default {
             },
             content: "block+",
             group: "block",
+            defining: true,
             parseDOM: [
                 {
                     tag: "div[class~=image]",
