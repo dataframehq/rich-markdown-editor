@@ -174,7 +174,7 @@ class Image extends Node_1.default {
                     default: null,
                 },
             },
-            content: "block*",
+            content: "block+",
             marks: "",
             group: "block",
             selectable: true,

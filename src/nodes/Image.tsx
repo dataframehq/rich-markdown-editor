@@ -117,7 +117,7 @@ export default class Image extends Node {
           default: null,
         },
       },
-      content: "block*",
+      content: "block+",
       marks: "",
       group: "block",
       selectable: true,
