@@ -19,7 +19,7 @@ export default class Paragraph extends Node {
           "node.attrs.layoutClass"
         );
 
-        const isImageParagraph = node.content.lastChild.type.name === "image";
+        const isImageParagraph = node.content.lastChild?.type.name === "image";
         const className = isImageParagraph ? `image-paragraph` : "";
         console.log(isImageParagraph, className);
         return ["p", { class: className }];
