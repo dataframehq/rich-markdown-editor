@@ -118,12 +118,13 @@ export default class Image extends Node {
       },
       // content: "text*",
       // group: "inline",
-      inline: true,
+      // marks: "",
+      // inline: true,
+
       // selectable: true,
       // draggable: true,
       content: "block+",
       group: "block",
-      marks: "",
       parseDOM: [
         {
           tag: "div[class~=image]",
@@ -135,6 +136,8 @@ export default class Image extends Node {
             const layoutClass = layoutClassMatched
               ? layoutClassMatched[1]
               : null;
+
+            debugger;
 
             console.log(
               "img",
