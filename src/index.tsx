@@ -722,10 +722,6 @@ const StyledEditor = styled("div")<{
     -webkit-font-variant-ligatures: none;
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
-
-    /* .image-paragraph br {
-      display: none;
-    } */
   }
 
   .ProseMirror pre {

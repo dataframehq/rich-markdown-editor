@@ -261,16 +261,6 @@ class BlockMenu extends React.Component<Props, State> {
         )
       );
 
-      console.log(
-        "parent:",
-        parent,
-        "view:",
-        view,
-        "files:",
-        files,
-        "this.props.dictionary:",
-        this.props.dictionary
-      );
       insertFiles(view, event, parent.pos, files, {
         uploadImage,
         onImageUploadStart,
@@ -306,12 +296,6 @@ class BlockMenu extends React.Component<Props, State> {
     this.clearSearch();
 
     const command = this.props.commands[item.name];
-    console.log(
-      "INSERTING BLOCK: ",
-      this.props.commands,
-      item,
-      this.props.commands[`create${capitalize(item.name)}`]
-    );
 
     if (command) {
       command(item.attrs);
