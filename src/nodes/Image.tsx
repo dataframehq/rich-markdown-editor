@@ -118,8 +118,8 @@ export default class Image extends Node {
       },
       content: "block+",
       group: "block",
-      selectable: true,
-      draggable: true,
+      // selectable: true,
+      // draggable: true,
       parseDOM: [
         {
           tag: "div[class~=image]",
@@ -216,7 +216,7 @@ export default class Image extends Node {
     const className = layoutClass ? `image image-${layoutClass}` : "image";
 
     return (
-      <div contentEditable={false} className={className}>
+      <div contentEditable={false} className={className} draggable={true}>
         <ImageWrapper
           className={isSelected ? "ProseMirror-selectednode" : ""}
           onClick={this.handleSelect(props)}

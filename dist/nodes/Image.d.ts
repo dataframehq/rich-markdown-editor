@@ -19,8 +19,6 @@ export default class Image extends Node {
         };
         content: string;
         group: string;
-        selectable: boolean;
-        draggable: boolean;
         parseDOM: {
             tag: string;
             getAttrs: (dom: HTMLDivElement) => {
