@@ -20,6 +20,7 @@ export default class Image extends Node {
         content: string;
         marks: string;
         group: string;
+        inline: boolean;
         parseDOM: {
             tag: string;
             getAttrs: (dom: HTMLDivElement) => {

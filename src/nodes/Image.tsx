@@ -119,6 +119,7 @@ export default class Image extends Node {
       content: "text*",
       marks: "",
       group: "inline",
+      inline: true,
       // content: "block+",
       // group: "block",
       // selectable: true,
