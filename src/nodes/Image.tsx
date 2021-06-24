@@ -220,6 +220,9 @@ export default class Image extends Node {
     const { alt, src, title, layoutClass } = props.node.attrs;
     const className = layoutClass ? `image image-${layoutClass}` : "image";
 
+    console.log(props);
+    debugger;
+
     return (
       <div contentEditable={false} className={className} draggable={true}>
         <ImageWrapper
@@ -273,7 +276,6 @@ export default class Image extends Node {
   }
 
   parseMarkdown() {
-    debugger;
     return {
       node: "image",
       getAttrs: (token) => {
@@ -349,8 +351,6 @@ export default class Image extends Node {
             })
           );
         }
-
-        console.log(okay, state, match, start, end);
 
         return tr;
       }),

@@ -142,6 +142,8 @@ class Image extends Node_1.default {
             const { theme, isSelected } = props;
             const { alt, src, title, layoutClass } = props.node.attrs;
             const className = layoutClass ? `image image-${layoutClass}` : "image";
+            console.log(props);
+            debugger;
             return (React.createElement("div", { contentEditable: false, className: className, draggable: true },
                 React.createElement(ImageWrapper, { className: isSelected ? "ProseMirror-selectednode" : "", onClick: this.handleSelect(props) },
                     React.createElement(react_medium_image_zoom_1.default, { image: {
@@ -225,7 +227,6 @@ class Image extends Node_1.default {
         state.write(markdown);
     }
     parseMarkdown() {
-        debugger;
         return {
             node: "image",
             getAttrs: (token) => {
@@ -279,7 +280,6 @@ class Image extends Node_1.default {
                     tr.replaceWith(start - 1, end, type.create(Object.assign({ src,
                         alt }, getLayoutAndTitle(matchedTitle))));
                 }
-                console.log(okay, state, match, start, end);
                 return tr;
             }),
         ];
