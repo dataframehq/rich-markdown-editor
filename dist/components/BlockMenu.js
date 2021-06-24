@@ -192,7 +192,6 @@ class BlockMenu extends React.Component {
             const parent = prosemirror_utils_1.findParentNode((node) => !!node)(state.selection);
             if (parent) {
                 dispatch(state.tr.insertText("", parent.pos, parent.pos + parent.node.textContent.length + 1));
-                console.log("parent:", parent, "view:", view, "files:", files, "this.props.dictionary:", this.props.dictionary);
                 insertFiles_1.default(view, event, parent.pos, files, {
                     uploadImage,
                     onImageUploadStart,
@@ -241,7 +240,6 @@ class BlockMenu extends React.Component {
     insertBlock(item) {
         this.clearSearch();
         const command = this.props.commands[item.name];
-        console.log("INSERTING BLOCK: ", this.props.commands, item, this.props.commands[`create${capitalize_1.default(item.name)}`]);
         if (command) {
             command(item.attrs);
         }

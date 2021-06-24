@@ -14,14 +14,7 @@ class Paragraph extends Node_1.default {
             content: "inline*",
             group: "block",
             parseDOM: [{ tag: "p" }],
-            toDOM: (node) => {
-                var _a;
-                console.log(node, "ParagraphNode", node.attrs.layoutClass, "node.attrs.layoutClass");
-                const isImageParagraph = ((_a = node.content.lastChild) === null || _a === void 0 ? void 0 : _a.type.name) === "image";
-                const className = isImageParagraph ? `image-paragraph` : "";
-                console.log(isImageParagraph, className);
-                return ["p", 0];
-            },
+            toDOM: () => ["p", 0],
         };
     }
     keys({ type }) {
