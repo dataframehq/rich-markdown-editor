@@ -301,6 +301,8 @@ export default class Image extends Node {
           title: null,
           layoutClass: "right-50",
         };
+
+        console.log(state.selection);
         const { selection } = state;
         dispatch(state.tr.setNodeMarkup(selection.$from.pos, undefined, attrs));
         return true;
