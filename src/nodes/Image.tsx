@@ -122,7 +122,7 @@ export default class Image extends Node {
       // selectable: true,
       // draggable: true,
       content: "block+",
-      // group: "block",
+      group: "block",
       marks: "",
       parseDOM: [
         {

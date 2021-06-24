@@ -175,6 +175,7 @@ class Image extends Node_1.default {
             },
             inline: true,
             content: "block+",
+            group: "block",
             marks: "",
             parseDOM: [
                 {
