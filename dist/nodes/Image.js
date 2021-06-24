@@ -175,7 +175,6 @@ class Image extends Node_1.default {
             },
             content: "block+",
             group: "block",
-            defining: true,
             parseDOM: [
                 {
                     tag: "div[class~=image]",
@@ -186,6 +185,7 @@ class Image extends Node_1.default {
                         const layoutClass = layoutClassMatched
                             ? layoutClassMatched[1]
                             : null;
+                        console.log("img", img, "className", className, "layoutClassMatched", layoutClassMatched, "layoutClass", layoutClass);
                         return {
                             src: img.getAttribute("src"),
                             alt: img.getAttribute("alt"),

@@ -19,7 +19,6 @@ export default class Image extends Node {
         };
         content: string;
         group: string;
-        defining: boolean;
         parseDOM: {
             tag: string;
             getAttrs: (dom: HTMLDivElement) => {

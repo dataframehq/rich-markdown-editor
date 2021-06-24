@@ -118,7 +118,6 @@ export default class Image extends Node {
       },
       content: "block+",
       group: "block",
-      defining: true,
       // selectable: true,
       // draggable: true,
       parseDOM: [
@@ -132,6 +131,17 @@ export default class Image extends Node {
             const layoutClass = layoutClassMatched
               ? layoutClassMatched[1]
               : null;
+
+            console.log(
+              "img",
+              img,
+              "className",
+              className,
+              "layoutClassMatched",
+              layoutClassMatched,
+              "layoutClass",
+              layoutClass
+            );
             return {
               src: img.getAttribute("src"),
               alt: img.getAttribute("alt"),
