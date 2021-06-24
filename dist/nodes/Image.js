@@ -174,9 +174,9 @@ class Image extends Node_1.default {
                     default: null,
                 },
             },
-            content: "text*",
+            content: "block*",
             marks: "",
-            group: "inline",
+            group: "block",
             selectable: true,
             draggable: true,
             parseDOM: [
