@@ -18,6 +18,7 @@ export default class Image extends Node {
             };
         };
         content: string;
+        marks: string;
         group: string;
         parseDOM: {
             tag: string;

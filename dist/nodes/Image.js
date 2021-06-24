@@ -173,8 +173,9 @@ class Image extends Node_1.default {
                     default: null,
                 },
             },
-            content: "block+",
-            group: "block",
+            content: "text*",
+            marks: "",
+            group: "inline",
             parseDOM: [
                 {
                     tag: "div[class~=image]",
