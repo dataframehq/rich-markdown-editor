@@ -7,7 +7,9 @@ export default class Paragraph extends Node {
         parseDOM: {
             tag: string;
         }[];
-        toDOM: (node: any) => (string | number)[];
+        toDOM: (node: any) => (string | {
+            class: string;
+        })[];
     };
     keys({ type }: {
         type: any;

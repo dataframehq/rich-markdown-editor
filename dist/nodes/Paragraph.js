@@ -16,7 +16,10 @@ class Paragraph extends Node_1.default {
             parseDOM: [{ tag: "p" }],
             toDOM: (node) => {
                 console.log(node, "ParagraphNode", node.attrs.layoutClass, "node.attrs.layoutClass");
-                return ["p", 0];
+                const isImageParagraph = node.content.lastChild.type.name === "image";
+                const className = isImageParagraph ? `image-paragraph` : "";
+                console.log(isImageParagraph, className);
+                return ["p", { class: className }];
             },
         };
     }

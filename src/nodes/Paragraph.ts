@@ -18,10 +18,11 @@ export default class Paragraph extends Node {
           node.attrs.layoutClass,
           "node.attrs.layoutClass"
         );
-        // const className = node.attrs.layoutClass
-        //   ? `image image-${node.attrs.layoutClass}`
-        //   : "image";
-        return ["p", 0];
+
+        const isImageParagraph = node.content.lastChild.type.name === "image";
+        const className = isImageParagraph ? `image-paragraph` : "";
+        console.log(isImageParagraph, className);
+        return ["p", { class: className }];
       },
     };
   }
