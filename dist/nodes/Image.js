@@ -173,8 +173,8 @@ class Image extends Node_1.default {
                     default: null,
                 },
             },
+            inline: true,
             content: "block+",
-            group: "block",
             marks: "",
             parseDOM: [
                 {

@@ -17,8 +17,8 @@ export default class Image extends Node {
                 default: null;
             };
         };
+        inline: boolean;
         content: string;
-        group: string;
         marks: string;
         parseDOM: {
             tag: string;
