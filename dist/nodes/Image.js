@@ -185,8 +185,6 @@ class Image extends Node_1.default {
                         const layoutClass = layoutClassMatched
                             ? layoutClassMatched[1]
                             : null;
-                        debugger;
-                        console.log("img", img, "className", className, "layoutClassMatched", layoutClassMatched, "layoutClass", layoutClass);
                         return {
                             src: img.getAttribute("src"),
                             alt: img.getAttribute("alt"),
@@ -227,6 +225,7 @@ class Image extends Node_1.default {
         state.write(markdown);
     }
     parseMarkdown() {
+        debugger;
         return {
             node: "image",
             getAttrs: (token) => {
