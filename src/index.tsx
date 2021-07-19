@@ -179,8 +179,11 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       this.scrollToAnchor(this.props.scrollTo);
     }
 
-    if (this.props.highlightTerm) {
-      this.scrollToTerm(this.props.highlightTerm);
+    const { highlightTerm } = this.props;
+    if (highlightTerm) {
+      setTimeout(() => {
+        this.scrollToTerm(highlightTerm);
+      }, 500);
     }
 
     if (this.props.readOnly) return;
@@ -213,6 +216,8 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       this.props.highlightTerm &&
       this.props.highlightTerm !== prevProps.highlightTerm
     ) {
+      console.log("this.props.highlightTerm: ", this.props.highlightTerm);
+      console.log("prevProps.highlightTerm: ", prevProps.highlightTerm);
       this.scrollToTerm(this.props.highlightTerm);
     }
 
