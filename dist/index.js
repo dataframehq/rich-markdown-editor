@@ -197,9 +197,9 @@ class RichMarkdownEditor extends React.PureComponent {
             return Object.assign(Object.assign({}, dictionary_1.default), providedDictionary);
         });
         this.render = () => {
-            const { readOnly, readOnlyWriteCheckboxes, style, tooltip, className, onKeyDown, } = this.props;
+            const { id, readOnly, readOnlyWriteCheckboxes, style, tooltip, className, onKeyDown, } = this.props;
             const dictionary = this.dictionary(this.props.dictionary);
-            return (React.createElement(Flex_1.default, { onKeyDown: onKeyDown, style: style, className: className, align: "flex-start", justify: "center", column: true },
+            return (React.createElement(Flex_1.default, { id: id, onKeyDown: onKeyDown, style: style, className: className, align: "flex-start", justify: "center", column: true },
                 React.createElement(styled_components_1.ThemeProvider, { theme: this.theme() },
                     React.createElement(React.Fragment, null,
                         React.createElement(StyledEditor, { readOnly: readOnly, readOnlyWriteCheckboxes: readOnlyWriteCheckboxes, ref: (ref) => (this.element = ref) }),
@@ -213,6 +213,9 @@ class RichMarkdownEditor extends React.PureComponent {
         this.init();
         if (this.props.scrollTo) {
             this.scrollToAnchor(this.props.scrollTo);
+        }
+        if (this.props.highlightTerm) {
+            this.scrollToTerm(this.props.highlightTerm);
         }
         if (this.props.readOnly)
             return;
@@ -230,6 +233,10 @@ class RichMarkdownEditor extends React.PureComponent {
         }
         if (this.props.scrollTo && this.props.scrollTo !== prevProps.scrollTo) {
             this.scrollToAnchor(this.props.scrollTo);
+        }
+        if (this.props.highlightTerm &&
+            this.props.highlightTerm !== prevProps.highlightTerm) {
+            this.scrollToTerm(this.props.highlightTerm);
         }
         if (prevProps.readOnly && !this.props.readOnly && this.props.autoFocus) {
             this.focusAtEnd();
@@ -471,6 +478,26 @@ class RichMarkdownEditor extends React.PureComponent {
         }
         catch (err) {
             console.warn(`Attempted to scroll to invalid hash: ${hash}`, err);
+        }
+    }
+    scrollToTerm(term) {
+        var _a;
+        if (!term || !this.props.id)
+            return;
+        try {
+            const elementList = document.querySelectorAll(`#${this.props.id} > div > div > p`);
+            let firstFound;
+            for (let i = 0; i < elementList.length; i++) {
+                if (!(((_a = elementList[i].textContent) === null || _a === void 0 ? void 0 : _a.search(new RegExp(term, "i"))) === -1)) {
+                    firstFound = elementList[i];
+                    break;
+                }
+            }
+            if (firstFound)
+                firstFound.scrollIntoView({ behavior: "smooth" });
+        }
+        catch (err) {
+            console.warn(`Attempted to scroll to invalid term: ${term}`, err);
         }
     }
 }

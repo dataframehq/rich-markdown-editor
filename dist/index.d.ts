@@ -101,6 +101,7 @@ export declare type Props = {
     headingsOffset?: number;
     maxLength?: number;
     scrollTo?: string;
+    highlightTerm?: string;
     handleDOMEvents?: {
         [name: string]: (view: EditorView, event: Event) => boolean;
     };
@@ -189,6 +190,7 @@ declare class RichMarkdownEditor extends React.PureComponent<Props, State> {
     createDocument(content: string): import("prosemirror-model").Node<any>;
     createView(): EditorView<any>;
     scrollToAnchor(hash: string): void;
+    scrollToTerm(term: string): void;
     value: () => string;
     handleChange: () => void;
     handleSave: () => void;
