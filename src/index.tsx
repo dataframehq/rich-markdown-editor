@@ -216,8 +216,6 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       this.props.highlightTerm &&
       this.props.highlightTerm !== prevProps.highlightTerm
     ) {
-      console.log("this.props.highlightTerm: ", this.props.highlightTerm);
-      console.log("prevProps.highlightTerm: ", prevProps.highlightTerm);
       this.scrollToTerm(this.props.highlightTerm);
     }
 
