@@ -516,7 +516,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 
     try {
       const elementList = document.querySelectorAll(
-        `#${this.props.id} > div > div > p`
+        `#${this.props.id} > div > div > *`
       );
       let firstFound;
       for (let i = 0; i < elementList.length; i++) {

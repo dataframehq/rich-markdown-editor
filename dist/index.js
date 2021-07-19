@@ -485,7 +485,7 @@ class RichMarkdownEditor extends React.PureComponent {
         if (!term || !this.props.id)
             return;
         try {
-            const elementList = document.querySelectorAll(`#${this.props.id} > div > div > p`);
+            const elementList = document.querySelectorAll(`#${this.props.id} > div > div > *`);
             let firstFound;
             for (let i = 0; i < elementList.length; i++) {
                 if (!(((_a = elementList[i].textContent) === null || _a === void 0 ? void 0 : _a.search(new RegExp(term, "i"))) === -1)) {
