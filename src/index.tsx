@@ -1,7 +1,7 @@
 /* global window File Promise */
 import * as React from "react";
 import memoize from "lodash/memoize";
-import { EditorState, Selection, Plugin } from "prosemirror-state";
+import { EditorState, Selection, Plugin, TextSelection } from "prosemirror-state";
 import { dropCursor } from "prosemirror-dropcursor";
 import { gapCursor } from "prosemirror-gapcursor";
 import { MarkdownParser, MarkdownSerializer } from "prosemirror-markdown";
@@ -521,16 +521,30 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       const elementList = document.querySelectorAll(
         `#${this.props.id} > div > div > *`
       );
-      let firstFound;
+      let firstFound, index;
       for (let i = 0; i < elementList.length; i++) {
         if (
           !(elementList[i].textContent?.search(new RegExp(term, "i")) === -1)
         ) {
           firstFound = elementList[i];
+          index = i;
           break;
         }
       }
-      if (firstFound) firstFound.scrollIntoView({ behavior: "smooth" });
+      if (firstFound) {
+        firstFound.scrollIntoView({ behavior: "smooth" });
+        // this.view.state.doc.content.child(index)
+        // this.view.posAtDOM(firstFound, 0);
+        this.view.dispatch(
+          this.view.state.tr.setSelection(
+            TextSelection.create(
+              this.view.state.doc,
+              this.view.posAtDOM(firstFound, 0),
+              this.view.posAtDOM(firstFound, 0) + 100
+            )
+          )
+        );
+      }
     } catch (err) {
       console.warn(`Attempted to scroll to invalid term: ${term}`, err);
     }

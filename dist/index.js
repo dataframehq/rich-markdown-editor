@@ -239,8 +239,6 @@ class RichMarkdownEditor extends React.PureComponent {
         }
         if (this.props.highlightTerm &&
             this.props.highlightTerm !== prevProps.highlightTerm) {
-            console.log("this.props.highlightTerm: ", this.props.highlightTerm);
-            console.log("prevProps.highlightTerm: ", prevProps.highlightTerm);
             this.scrollToTerm(this.props.highlightTerm);
         }
         if (prevProps.readOnly && !this.props.readOnly && this.props.autoFocus) {
@@ -491,15 +489,18 @@ class RichMarkdownEditor extends React.PureComponent {
             return;
         try {
             const elementList = document.querySelectorAll(`#${this.props.id} > div > div > *`);
-            let firstFound;
+            let firstFound, index;
             for (let i = 0; i < elementList.length; i++) {
                 if (!(((_a = elementList[i].textContent) === null || _a === void 0 ? void 0 : _a.search(new RegExp(term, "i"))) === -1)) {
                     firstFound = elementList[i];
+                    index = i;
                     break;
                 }
             }
-            if (firstFound)
+            if (firstFound) {
                 firstFound.scrollIntoView({ behavior: "smooth" });
+                this.view.dispatch(this.view.state.tr.setSelection(prosemirror_state_1.TextSelection.create(this.view.state.doc, this.view.posAtDOM(firstFound, 0), this.view.posAtDOM(firstFound, 0) + 100)));
+            }
         }
         catch (err) {
             console.warn(`Attempted to scroll to invalid term: ${term}`, err);
