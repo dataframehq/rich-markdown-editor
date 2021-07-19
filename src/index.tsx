@@ -92,6 +92,7 @@ export type Props = {
   headingsOffset?: number;
   maxLength?: number;
   scrollTo?: string;
+  highlightTerm?: string;
   handleDOMEvents?: {
     [name: string]: (view: EditorView, event: Event) => boolean;
   };
@@ -178,6 +179,10 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       this.scrollToAnchor(this.props.scrollTo);
     }
 
+    if (this.props.highlightTerm) {
+      this.scrollToTerm(this.props.highlightTerm);
+    }
+
     if (this.props.readOnly) return;
 
     if (this.props.autoFocus) {
@@ -202,6 +207,13 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 
     if (this.props.scrollTo && this.props.scrollTo !== prevProps.scrollTo) {
       this.scrollToAnchor(this.props.scrollTo);
+    }
+
+    if (
+      this.props.highlightTerm &&
+      this.props.highlightTerm !== prevProps.highlightTerm
+    ) {
+      this.scrollToTerm(this.props.highlightTerm);
     }
 
     // Focus at the end of the document if switching from readOnly and autoFocus
@@ -496,6 +508,28 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
       // or contains a period. This is protected against now by safeSlugify
       // however previous links may be in the wild.
       console.warn(`Attempted to scroll to invalid hash: ${hash}`, err);
+    }
+  }
+
+  scrollToTerm(term: string) {
+    if (!term || !this.props.id) return;
+
+    try {
+      const elementList = document.querySelectorAll(
+        `#${this.props.id} > div > div > p`
+      );
+      let firstFound;
+      for (let i = 0; i < elementList.length; i++) {
+        if (
+          !(elementList[i].textContent?.search(new RegExp(term, "i")) === -1)
+        ) {
+          firstFound = elementList[i];
+          break;
+        }
+      }
+      if (firstFound) firstFound.scrollIntoView({ behavior: "smooth" });
+    } catch (err) {
+      console.warn(`Attempted to scroll to invalid term: ${term}`, err);
     }
   }
 
