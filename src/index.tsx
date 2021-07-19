@@ -628,6 +628,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 
   render = () => {
     const {
+      id,
       readOnly,
       readOnlyWriteCheckboxes,
       style,
@@ -639,6 +640,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 
     return (
       <Flex
+        id={id}
         onKeyDown={onKeyDown}
         style={style}
         className={className}
